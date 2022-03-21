@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WishesService } from 'src/app/services/wishes.service';
 
 @Component({
   selector: 'app-tab2',
