@@ -1,11 +1,19 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <ion-title>
       Pending
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-  <h1>HELLO WORLD</h1>
+<ion-content color="tertiary"> 
+  <ion-list>
+    <ion-item *ngFor="let item of wishesService.lists" 
+                detail=""
+                color="tertiary">
+      <ion-label>
+        <h1>{{item.tittle}}</h1>
+      </ion-label>
+    </ion-item>
+   
+  </ion-list>
 </ion-content>
