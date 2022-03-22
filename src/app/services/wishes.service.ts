@@ -8,17 +8,28 @@ export class WishesService {
   lists: List[] = [];
 
   constructor() {
-    const list1 = new List('Get the infinity rock');
-    const list2 = new List('Heroes desappear');
-
-    this.lists.push(list1, list2);
-
-    console.log(this.lists);
+    this.chargeStorage();
     
   }
 
   createList( tittle: string ){
     const newList = new List(tittle);
-    this.lists.push( newList )
+    this.lists.push( newList );
+    this.holdStorage();
   }
+
+  holdStorage(){
+    localStorage.setItem('data',JSON.stringify(this.lists))
+  }
+
+  chargeStorage(){
+    if(localStorage.getItem('data')){
+      
+      this.lists = JSON.parse( localStorage.getItem('data'));
+
+    } else{
+      this.lists = [];
+    }
+  }
+ 
 }
