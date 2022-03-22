@@ -41,7 +41,7 @@ export class AddPage implements OnInit {
      this.whishesService.holdStorage();
   }
 
-  cambioCheck(item: ListItem){
+  changeCheck(item: ListItem){
     
     const pending = this.list.items.filter( itemData => !itemData.completed)
                         .length;
@@ -61,6 +61,11 @@ export class AddPage implements OnInit {
 
     this.whishesService.holdStorage();
     
+  }
+
+  clear(i : number){
+    this.list.items.splice(i, 1);
+    this.whishesService.holdStorage();
   }
 
 }
