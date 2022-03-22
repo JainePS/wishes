@@ -7,14 +7,14 @@ export class List {
 
     id: number;
     tittle: string;
-    createDate: Date;
+    finishedDate: Date;
     finished: boolean;
     items: ListItem[];
  
     constructor(tittle: string){
 
         this.tittle = tittle;
-        this.createDate = new Date();
+        this.finishedDate = new Date();
         this.finished = false;
         this.items = [];
         this.id = new Date().getTime()

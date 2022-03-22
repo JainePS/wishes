@@ -41,4 +41,26 @@ export class AddPage implements OnInit {
      this.whishesService.holdStorage();
   }
 
+  cambioCheck(item: ListItem){
+    
+    const pending = this.list.items.filter( itemData => !itemData.completed)
+                        .length;
+    
+    
+     console.log({pending});
+      
+     if( pending === 0 ){
+       this.list.finishedDate = new Date();
+       this.list.finished = true;
+     } else {
+       this.list.finishedDate = null;
+       this.list.finished = false;
+     }
+  
+
+
+    this.whishesService.holdStorage();
+    
+  }
+
 }

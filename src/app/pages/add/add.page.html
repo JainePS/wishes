@@ -1,7 +1,7 @@
 <ion-header no-border>
   <ion-toolbar color="tertiary">
     <ion-buttons>
-      <ion-back-button slot="start" color="secondary" defaultHref="/tab1"></ion-back-button>
+      <ion-back-button slot="start" color="secondary" defaultHref="/tabs/tab1"></ion-back-button>
       <ion-title>{{list.tittle}} </ion-title>
     </ion-buttons>
    
@@ -22,10 +22,12 @@
         <ion-label>Unfinished tasks</ion-label>
       </ion-list-header>
       <ion-item color="tertiary"
-                *ngFor="let item of list.items">
+                *ngFor="let item of list.items"
+                class="animated fadeIn">
         <ion-checkbox color="secondary"
                       slot="start"
-                      [(ngModel)]="item.completed"></ion-checkbox>
+                      [(ngModel)]="item.completed"
+                      (ionChange)="cambioCheck(item)"></ion-checkbox>
         <ion-label>{{item.desc}}</ion-label>
       </ion-item>
     </ion-list>
