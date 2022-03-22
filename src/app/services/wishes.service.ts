@@ -8,6 +8,7 @@ export class WishesService {
   lists: List[] = [];
 
   constructor() {
+    // this.holdStorage();
     this.chargeStorage();
     
   }
@@ -16,6 +17,17 @@ export class WishesService {
     const newList = new List(tittle);
     this.lists.push( newList );
     this.holdStorage();
+    return newList.id;
+  }
+
+  getList(id: string | number){
+    id = Number(id);
+
+    console.log(this.lists);
+    
+    let filteredList = this.lists.find (listData => listData.id === id);
+
+    return filteredList;
   }
 
   holdStorage(){

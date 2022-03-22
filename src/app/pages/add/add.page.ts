@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ListItem } from 'src/app/models/list-item.model';
+import { List } from 'src/app/models/list.model';
+import { WishesService } from 'src/app/services/wishes.service';
 
 @Component({
   selector: 'app-add',
@@ -7,9 +11,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPage implements OnInit {
 
-  constructor() { }
+  list: List;
+  itemName: '';
+  constructor(private whishesService: WishesService,
+              private route: ActivatedRoute) {
+
+
+    const listId = this.route.snapshot.paramMap.get('listId');
+      console.log(listId);
+      
+    this.list = this.whishesService.getList(listId);
+
+    
+    
+               }
 
   ngOnInit() {
+  }
+
+  addItem(){
+     if(this.itemName.length === 0){
+      return;
+     }
+
+     const newItem = new ListItem(this.itemName);
+     this.list.items.push(newItem);
+
+     this.itemName = '';
+     this.whishesService.holdStorage();
   }
 
 }
