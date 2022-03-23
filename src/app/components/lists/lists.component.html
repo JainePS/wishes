@@ -1,0 +1,10 @@
+<ion-list>
+  <ion-item *ngFor="let item of itemList" 
+              detail=""
+              color="tertiary"
+              (click)="emitSelectedList(item)">
+      <ion-label>{{item.tittle}}</ion-label>
+      <ion-note slot="end" color="secondary" >{{item.items.length}} Items</ion-note>
+  
+  </ion-item>
+</ion-list>

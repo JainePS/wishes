@@ -18,7 +18,7 @@
     </ion-list>
 
     <ion-list>
-      <ion-list-header color="tertiary">
+      <ion-list-header color="tertiary" *ngIf="list.items.length === 0">
         <ion-label>Unfinished tasks</ion-label>
       </ion-list-header>
 
