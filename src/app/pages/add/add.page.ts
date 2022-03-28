@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ListItem } from 'src/app/models/list-item.model';
 import { List } from 'src/app/models/list.model';
@@ -33,6 +33,7 @@ export class AddPage implements OnInit {
     this.list.addItem(this.itemName);
 
     this.itemName = '';
+    
     this.whishesService.holdStorage();
   }
 

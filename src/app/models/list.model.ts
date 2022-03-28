@@ -16,13 +16,19 @@ export class List {
     this.id = new Date().getTime();
   }
 
+  setFinished( isFinished: boolean ) {
+    this.finished = isFinished;
+  }
+
+  isFinished() {
+    return this.finished;
+  }
+
   addItem( itemName: string ) {
     const newItem = new ListItem(itemName);
     this.items.push(newItem);
   }
 
   
-  isFinished(){
-  
-  }
+
 }

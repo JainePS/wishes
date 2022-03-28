@@ -1,11 +1,11 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header class="ion-no-border" >
+  <ion-toolbar color="tertiary">
     <ion-title>
-      Tab 2
+      Finished
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content color="tertiary" [fullscreen]="true">
   <app-lists [itemList]="getFinishedShoppingLists()" (selectedItem)="selectedList($event)" ></app-lists>
 </ion-content>

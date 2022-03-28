@@ -10,38 +10,60 @@ export class WishesService {
   constructor() {
     // this.holdStorage();
     this.chargeStorage();
-    
   }
 
-  createList( tittle: string ){
+  createList(tittle: string) {
     const newList = new List(tittle);
-    this.lists.push( newList );
+    this.lists.push(newList);
     this.holdStorage();
     return newList.id;
   }
 
-  getList(id: string | number){
+  getList(id: string | number) {
     id = Number(id);
 
     console.log(this.lists);
-    
-    let filteredList = this.lists.find (listData => listData.id === id);
+
+    let filteredList = this.lists.find((listData) => listData.id === id);
 
     return filteredList;
   }
 
-  holdStorage(){
-    localStorage.setItem('data',JSON.stringify(this.lists))
+  toClearList(list: List) {
+   
+    
+    this.lists.splice(1);    
+    this.holdStorage();
   }
 
-  chargeStorage(){
-    if(localStorage.getItem('data')){
-      
-      this.lists = JSON.parse( localStorage.getItem('data'));
+  holdStorage() {
+    localStorage.setItem('data', JSON.stringify(this.lists));
+  }
 
-    } else{
+  chargeStorage() {
+    if (localStorage.getItem('data')) {
+      this.lists = JSON.parse(localStorage.getItem('data'));
+    } else {
       this.lists = [];
     }
   }
- 
+
+  filteredFinisheddata() {
+    return this.filterListByFinishedStatus(true);
+  }
+  filteredUnfinisheddata() {
+    return this.filterListByFinishedStatus(false);
+  }
+
+  private filterListByFinishedStatus(finishedStatus: boolean) {
+    let filteredList: any = [];
+
+    this.lists.forEach((list) => {
+      if (list.finished === finishedStatus) {
+        filteredList.push(list);
+      }
+    });
+
+    return filteredList;
+  }
 }

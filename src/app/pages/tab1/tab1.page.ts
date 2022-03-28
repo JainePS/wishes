@@ -17,7 +17,8 @@ export class Tab1Page {
   ) {}
 
   getAllShoppingLists() {
-    return this.wishesService.lists;
+    
+    return this.wishesService.filteredUnfinisheddata();
   }
   
   async addList() {

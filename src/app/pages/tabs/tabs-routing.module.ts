@@ -16,10 +16,17 @@ const routes: Routes = [
         loadChildren: () => import('../add/add.module').then(m => m.AddPageModule)
       },
       {
+        path: 'tab1/add/:listId',
+        loadChildren: () => import('../add/add.module').then(m => m.AddPageModule)
+      },
+      {
         path: 'tab2',
         loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
       },
-      
+      {
+        path: 'tab2/add/:listId',
+        loadChildren: () => import('../add/add.module').then(m => m.AddPageModule)
+      },
       {
         path: '',
         redirectTo: '/tabs/tab1',
